@@ -1,7 +1,7 @@
 name: builder
 description: A new Flutter project.
 
-publish_to: 'none'
+publish_to: "none"
 
 version: 1.0.0+1
 
@@ -17,8 +17,16 @@ dependencies:
     path: ../core
   home:
     path: ../modules/home
+  login:
+    path: ../modules/login
+  sales:
+    path: ../modules/sales
+  apod:
+    path: ../modules/apod
   digital_account:
     path: ../shared/services/digital_account
+  network_services:
+    path: ../shared/services/network_services
   cupertino_icons: ^1.0.2
 
 dev_dependencies:
@@ -28,5 +36,11 @@ dev_dependencies:
   flutter_lints: ^1.0.0
 
 flutter:
-
   uses-material-design: true
+
+scripts:
+  getall: flutter pub get & cd ../shared/dependencies & flutter pub get & cd ../shared/services/digital_account & flutter pub get & cd ../modules/home & flutter pub get & cd ../modules/login & flutter pub get & cd ../modules/sales & flutter pub get
+  test_error: flutter pub get2
+  print: echo $name
+vars:
+  name: jacob

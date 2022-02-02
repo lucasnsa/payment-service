@@ -1,20 +1,17 @@
 library home;
 
-import 'package:core/core.dart';
+import 'package:flutter_modular/flutter_modular.dart';
 import 'package:home/presentation/ui/pages/home_page.dart';
 
-class HomeModule implements Module {
+class HomeModule extends Module {
   @override
-  String get moduleName => "module_home";
+  List<Bind> get binds => [
+    // Bind.factory((i) => RepoX()),
+    // Bind.factory((i) => GetAccount(i.get())),
+  ];
 
   @override
-  void Function() get registerInjections => () {};
-
-  @override
-  void Function() get registerListeners => () {};
-
-  @override
-  Map<String, WidgetBuilderArgs> get routes => {
-        "/home": (context, args) => const HomePage(),
-      };
+  List<ModularRoute> get routes => [
+    ChildRoute('/', child: (context, args) => const HomePage()),
+  ];
 }
