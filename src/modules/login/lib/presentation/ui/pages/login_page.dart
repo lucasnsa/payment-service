@@ -1,13 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_modular/flutter_modular.dart';
 
 class LoginPage extends StatelessWidget {
   const LoginPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: Center(
-        child: Text('Login Page'),
+    return Scaffold(
+      body: Column(
+        children: [
+          ElevatedButton(
+            onPressed: () {
+              Modular.to.pushNamed('/sales/checkout');
+            },
+            child: const Text('asdasd'),
+          ),
+        ],
       ),
     );
   }

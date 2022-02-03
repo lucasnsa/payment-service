@@ -27,6 +27,8 @@ dependencies:
     path: ../shared/services/digital_account
   network_services:
     path: ../shared/services/network_services
+  # modular_release_guard:
+  #   path: c:/projetos/modular_release_guard
   cupertino_icons: ^1.0.2
 
 dev_dependencies:

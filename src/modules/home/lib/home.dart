@@ -7,7 +7,7 @@ class HomeModule extends Module {
   @override
   List<Bind> get binds => [
     // Bind.factory((i) => RepoX()),
-    // Bind.factory((i) => GetAccount(i.get())),
+    // Bind.factory((i) => GetAccount(i.get<Uno>())),
   ];
 
   @override

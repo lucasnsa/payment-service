@@ -11,5 +11,7 @@ void main() {
   // Facil mudança
   Logger.initialize();
 
+  
+
   return runApp(ModularApp(module: AppModule(), child: const AppWidget()));
 }
