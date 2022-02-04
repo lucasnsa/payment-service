@@ -1,4 +1,5 @@
 import 'package:digital_account/domain/entities/account.dart';
+
 import 'card_viewmodel.dart';
 
 class AccountViewmodel {

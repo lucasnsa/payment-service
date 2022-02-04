@@ -1,44 +1,34 @@
-import 'package:core/core.dart';
-import 'package:digital_account/digital_account.dart';
+import 'package:builder/app_module.dart';
+import 'package:builder/app_widget.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_remote_config/firebase_remote_config.dart';
+// import 'package:core/logger.dart';
 import 'package:flutter/material.dart';
-import 'package:home/home.dart';
+import 'package:flutter_modular/flutter_modular.dart';
+import 'package:logger/logger.dart';
 
-import 'app/features/splash/presentation/ui/pages/splash_page.dart';
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
+  // Inicializa o Logger generico
+  // Esse logger pode conter qualquer tipo de logger
+  // Facil mudança
+  Logger.initialize();
 
-void main() {
-  runApp(MyApp());
-}
+  FirebaseRemoteConfig remoteConfig = FirebaseRemoteConfig.instance;
 
-class MyApp extends StatelessWidget with BuilderBase {
-  MyApp() {
-    super.registerInjections();
-    super.registerRouters();
-    super.registerListeners();
-  }
+  await remoteConfig.setConfigSettings(RemoteConfigSettings(
+    fetchTimeout: const Duration(seconds: 10),
+    minimumFetchInterval: const Duration(seconds: 30),
+  ));
 
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: "BlockchainReviews",
-      theme: ThemeData.dark(),
-      navigatorKey: navigatorKey,
-      onGenerateRoute: super.generateRoute,
-      initialRoute: '/splash',
-    );
-  }
+  remoteConfig.setDefaults(<String, dynamic>{
+    'welcome_message': 'this is the default welcome message',
+    'feat1_enabled': false,
+    'apod': false,
+  });
 
-  @override
-  Map<String, WidgetBuilderArgs> get builderRoutes => {
-        '/splash': (_, __) => const SplashPage(),
-      };
+  await remoteConfig.fetchAndActivate();
 
-  @override
-  List<Module> get modules => [
-        HomeModule(),
-      ];
-
-  @override
-  List<Service> get services => [
-        DigitalAccountService(),
-      ];
+  return runApp(ModularApp(module: AppModule(), child: const AppWidget()));
 }

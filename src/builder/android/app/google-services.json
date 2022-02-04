@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "862752998619",
+    "project_id": "pocmicroapps",
+    "storage_bucket": "pocmicroapps.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:862752998619:android:38cbb9fa4192c034d4b8fe",
+        "android_client_info": {
+          "package_name": "com.example.builder"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "862752998619-lrjlq9d72equml2hc7cibuvv0mv7p7i5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCGqJx3iIrShqn9OmpZxUZuk0vIZooQ45c"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "862752998619-lrjlq9d72equml2hc7cibuvv0mv7p7i5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
