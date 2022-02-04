@@ -309,7 +309,7 @@ packages:
       path: "c:/projetos/modular_release_guard"
       relative: false
     source: path
-    version: "0.0.1"
+    version: "0.8.1"
   nested:
     dependency: transitive
     description:
